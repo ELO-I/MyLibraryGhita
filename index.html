@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ghita’s Library</title>
 
-  <!-- Font pour le texte de popup -->
+  <!-- Police pour popup texte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
@@ -18,31 +18,93 @@
     <img src="images/background.png" class="background" alt="background">
 
     <!-- Objets interactifs -->
-    <img src="images/skills.png" class="item" id="skills" alt="skills" data-info="Skills, languages and framworks">
-    <img src="images/projets.png" class="item" id="projets" alt="projets" data-info="Projects">
-    <img src="images/education.png" class="item" id="education" alt="education" data-info="Education">
-    <img src="images/experience.png" class="item" id="experience" alt="experience" data-info="Experience">
-    <img src="images/CV.png" class="item" id="cv" alt="cv" data-info="My Resume">
-    <img src="images/photos.png" class="item" id="photos" alt="photos" data-info="Check out some of my photos">
-    <img src="images/contacts.png" class="item" id="contacts" alt="contacts" data-info="Contact me!">
-    <a href="https://github.com/ghitanooo" target="_blank" rel="noopener noreferrer">
-      <img src="images/github.png" class="item" id="github" alt="GitHub" data-info="GitHub">
+    <img src="images/skills.png" class="item" id="skills" alt="skills"
+         data-modal="modal-skills" data-info="Skills">
+
+    <img src="images/projets.png" class="item" id="projets" alt="projets"
+         data-modal="modal-projets" data-info="Projects">
+
+    <img src="images/education.png" class="item" id="education" alt="education"
+         data-modal="modal-education" data-info="Education">
+
+    <img src="images/experience.png" class="item" id="experience" alt="experience"
+         data-modal="modal-experience" data-info="Experience">
+
+    <!-- CV (téléchargement direct) -->
+    <a href="CV_Ghita_en.pdf" download>
+      <img src="images/CV.png" class="item" id="cv" alt="cv"
+           data-info="My Resume">
     </a>
 
-    <!-- Popup d'information -->
+    <!-- Photos (sera ajouté plus tard) -->
+    <img src="images/photos.png" class="item" id="photos" alt="photos"
+         data-info="Check out some of my photos">
+
+    <!-- Contacts -->
+    <img src="images/contacts.png" class="item" id="contacts" alt="contacts"
+         data-modal="modal-contacts" data-info="Contact me!">
+
+    <!-- GitHub -->
+    <a href="https://github.com/ghitanooo" target="_blank" rel="noopener noreferrer">
+      <img src="images/github.png" class="item" id="github" alt="GitHub" data-info="My GitHub">
+    </a>
+
+    <!-- Popup texte au survol -->
     <div id="popup" class="popup"></div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Modales personnalisées avec images -->
+  <div id="modal-skills" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="images/modale_skills.png" alt="Skills" class="modal-image">
+    </div>
+  </div>
 
-  <!-- Fenêtre modale -->
-<div id="modal" class="modal">
-  <div class="modal-content">
+  <div id="modal-projets" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="images/modale_projets.png" alt="Projets" class="modal-image">
+    </div>
+  </div>
+
+  <div id="modal-education" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="images/modale_education.png" alt="Éducation" class="modal-image">
+    </div>
+  </div>
+
+  <div id="modal-experience" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="images/modale_experience.png" alt="Expérience" class="modal-image">
+    </div>
+  </div>
+
+  <div id="modal-contacts" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="images/modale_contact.png" alt="Contacts" class="modal-image">
+    </div>
+  </div>
+
+ <!-- === Modale Galerie Photos === -->
+<div id="modal-gallery" class="modal">
+  <div class="modal-content gallery-content">
     <span class="close">&times;</span>
-    <h2 id="modal-title"></h2>
-    <p id="modal-text"></p>
+
+    <div class="gallery-grid">
+      <!-- Les miniatures seront générées automatiquement via JS -->
+    </div>
+
+    <div class="photo-viewer" id="photo-viewer">
+      <img id="photo-viewer-img" src="" alt="Photo en grand">
+    </div>
   </div>
 </div>
 
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -2,8 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #d9a178;
-  font-family: "New Amsterdam", sans-serif;
+  font-family: 'Caveat Brush', cursive;
 }
 
 .library {
@@ -17,34 +16,21 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
 }
 
-/* Objets interactifs */
+/* === OBJETS INTERACTIFS === */
 .item {
   position: absolute;
-  width: 200px;
-
   cursor: pointer;
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-.item {
-  pointer-events: auto;
-}
-
-.item img {
-  pointer-events: none;
+  width: 200px; /* ta taille initiale */
+  transition: transform 0.2s ease;
 }
 
 .item:hover {
   transform: scale(1.15);
 }
 
-/* Placement précis des objets */
+/* === POSITIONS EXACTES QUE TU AVAIS FOURNIES === */
 #skills { bottom: 520px; left: 1150px; }        
 #education { top: 330px; left: 1100px; }    
 #experience { top: 290px; left: 810px; }    
@@ -54,23 +40,143 @@ body {
 #projets { top: 240px; right: 970px; }       
 #github { top: 95px; left: 840px; width: 250px; } 
 
-/* Popup */
+/* === TEXTE HOVER === */
 .popup {
-  position: fixed; /* permet au popup de suivre précisément la souris */
+  position: absolute;
   display: none;
   color: #ffffff;
-  font-family: 'Caveat Brush', cursive;
-  font-size: 20px;
-  font-weight: 400;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  font-size: 22px;
   pointer-events: none;
-  z-index: 5;
-  transform: translate(-50%, -120%);
-  animation: fadeIn 0.2s ease;
+  z-index: 10;
 }
 
-/* Animation fluide */
+/* === MODALES === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeInOverlay 0.3s ease;
+}
+
+/* contenu centré */
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10% auto;
+  position: relative;
+  width: fit-content;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* image modale */
+.modal-image {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  animation: modalFadeIn 0.4s ease;
+}
+
+/* croix fermeture */
+.close {
+  position: absolute;
+  top: 20px;
+  right: -40px;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 5px black;
+}
+
+.close:hover {
+  color: #ffbfbf;
+}
+
+/* === ANIMATIONS === */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === Galerie photos === */
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  width: 100%;
+  padding: 30px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* === Vue agrandie === */
+.photo-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.photo-viewer img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 0px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+.photo-viewer.show {
+  display: flex;
+}
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translate(-50%, -100%); }
-  to { opacity: 1; transform: translate(-50%, -120%); }
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }
