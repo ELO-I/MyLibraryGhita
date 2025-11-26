@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghita’s Library</title>
+
+  <!-- Font pour le texte de popup -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="library">
+    <img src="images/background.png" class="background" alt="background">
+
+    <!-- Objets interactifs -->
+    <img src="images/skills.png" class="item" id="skills" alt="skills" data-info="Technical skills, languages and framworks">
+    <img src="images/projets.png" class="item" id="projets" alt="projets" data-info="Projects">
+    <img src="images/education.png" class="item" id="education" alt="education" data-info="Education">
+    <img src="images/experience.png" class="item" id="experience" alt="experience" data-info="Experience">
+    <img src="images/CV.png" class="item" id="cv" alt="cv" data-info="My Resume">
+    <img src="images/photos.png" class="item" id="photos" alt="photos" data-info="Check out some of my photos">
+    <img src="images/contacts.png" class="item" id="contacts" alt="contacts" data-info="Contact me!">
+
+    <!-- Chat GitHub -->
+    <a href="https://github.com/ghitanooo" target="_blank" rel="noopener noreferrer">
+      <img src="images/github.png" class="item" id="github" alt="GitHub" data-info="GitHub">
+    </a>
+
+    <!-- Popup d'information -->
+    <div id="popup" class="popup"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
