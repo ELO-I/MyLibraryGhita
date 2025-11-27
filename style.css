@@ -193,6 +193,23 @@ body {
     z-index: 10;
     transition: transform 0.2s ease;
 }
+/* === BOUTON MUSIQUE === */
+.music-button {
+    position: fixed;
+    top: 65px;          /* juste sous le bouton lune/soleil */
+    left: 28px;
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.2);
+}
+
 
 
 .mode-button:hover {
@@ -208,12 +225,6 @@ body, .library {
 .contact-wrapper {
   position: relative;
   display: inline-block;
-}
-
-.contact-image {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* Zones cliquables transparentes */
@@ -241,4 +252,10 @@ body, .library {
   height: 15%;
   transform: translate(-50%, -50%);
 }
+
+#modal-contacts .contact-image {
+  width: 800px;     
+  height: auto;
+}
+
 

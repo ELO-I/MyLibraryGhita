@@ -127,3 +127,45 @@ toggleButton.addEventListener("click", () => {
     toggleButton.textContent = "🌙";
   }
 });
+
+// === GESTION MUSIQUE ===
+const musicButton = document.getElementById("music-toggle");
+const music = document.getElementById("background-music");
+let musicPlaying = false;
+
+// Fonction pour démarrer la musique
+function startMusic() {
+  // Essaye de jouer la musique
+  const playPromise = music.play();
+
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        musicPlaying = true;
+        musicButton.textContent = "🔊";
+      })
+      .catch((error) => {
+        // si le navigateur bloque l'autoplay
+        console.log("Lecture automatique bloquée, démarrage manuel requis :", error);
+      });
+  }
+}
+
+// Lance automatiquement à l'arrivée sur la page
+window.addEventListener("load", () => {
+  music.volume = 0.5; // volume initial doux
+  startMusic();
+});
+
+// Clique = toggle on/off
+musicButton.addEventListener("click", () => {
+  if (musicPlaying) {
+    music.pause();
+    musicButton.textContent = "🔈";
+  } else {
+    music.play();
+    musicButton.textContent = "🔊";
+  }
+  musicPlaying = !musicPlaying;
+});
+
