@@ -48,7 +48,13 @@ body {
   font-size: 22px;
   pointer-events: none;
   z-index: 10;
+  text-shadow:
+    -1px -1px 0 #8b8686,  
+     1px -1px 0 #8b8686,
+    -1px  1px 0 #8b8686,
+     1px  1px 0 #8b8686;
 }
+
 
 /* === MODALES === */
 .modal {

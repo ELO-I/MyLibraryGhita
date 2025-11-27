@@ -168,4 +168,3 @@ musicButton.addEventListener("click", () => {
   }
   musicPlaying = !musicPlaying;
 });
-
